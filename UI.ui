@@ -14,7 +14,7 @@
    <string>Git и желтые окружности </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="edit">
     <property name="geometry">
      <rect>
       <x>10</x>
