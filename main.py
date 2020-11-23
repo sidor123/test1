@@ -11,10 +11,12 @@ class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('UI.ui', self)
-        self.edit.clicked.connect(self.run)
+        self.do_paint = False
+        self.edit.clicked.connect(self.paint)
 
-    def run(self):
-        self.paint()
+    def paint(self):
+        self.do_paint = True
+        self.repaint()
 
     def paintEvent(self, event):
         if self.do_paint:
@@ -23,14 +25,10 @@ class MyWidget(QMainWindow):
             self.draw_flag(qp)
             qp.end()
 
-    def paint(self):
-        self.do_paint = True
-        self.repaint()
-
     def draw_flag(self, qp):
         a = random.randint(1, 500)
         qp.setBrush(QColor(255, 255, 0))
-        qp.drawEllipse(250, 250, a, a)
+        qp.drawEllipse(250 - a // 2, 250 - a // 2, a, a)
 
 
 if __name__ == '__main__':
