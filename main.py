@@ -11,7 +11,7 @@ class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('UI.ui', self)
-        self.draw.clicked.connect(self.run)
+        self.edit.clicked.connect(self.run)
 
     def run(self):
         self.paint()
